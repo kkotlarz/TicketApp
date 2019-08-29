@@ -15,7 +15,7 @@ export const TicketForm = props => {
 
     const [value, setValue] = useContext(ValueContext);
     const [vehType, setVehType] = useContext(VehTypeContext);
-    const [vehNr, setVehNr] = useContext(VehNrContext);
+    const [vehNr, setVehNr] = useState(0);
     const [ticketNum, setTicketNum] = useContext(TicketNumContext);
     const [date, setDate] = useContext(DateContext);
     const [time, setTime] = useContext(TimeContext);
@@ -127,7 +127,7 @@ export const TicketForm = props => {
 
                 <div id="in">
                     Wprowadź numer linii:<br/>
-                        <input type="text" value={vehNr} onChange={onChangeVehNr} placeholder="Numer linii"/>
+                        <input type="text" onChange={onChangeVehNr} placeholder="Numer linii"/>
                         <label><input type="radio" name="vehType" value=" (tramwaj)" onChange={onChangeVehType}/>Tramwaj</label>
                         <label><input type="radio" name="vehType" value=" (autobus)" onChange={onChangeVehType}/>Autobus</label>
                 </div>
@@ -144,7 +144,7 @@ export const TicketForm = props => {
                 <button id="button">Kup Bilet</button>
             </Link>
 
-            <Link to="/result">
+            <Link to={{pathname: "/result", state: { vehNr }}}>
                 <button id="button" onClick={buyNow}>Kup Teraz</button>
             </Link>
 

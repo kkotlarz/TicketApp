@@ -16,9 +16,10 @@ import {Link} from "react-router-dom";
 
 export const Result = props => {
 
+    const { vehNr } = props.location.state;
     const [value, setValue] = useContext(ValueContext);
     const [vehType, setVehType] = useContext(VehTypeContext);
-    const [vehNr, setVehNr] = useContext(VehNrContext);
+    // const [vehNr, setVehNr] = useContext(VehNrContext);
     const [ticketNum, setTicketNum] = useContext(TicketNumContext);
     const [date, setDate] = useContext(DateContext);
     const [time, setTime] = useContext(TimeContext);
